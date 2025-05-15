@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>🔥 Times em Alta</title>
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;600&display=swap" rel="stylesheet" />
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Rubik', sans-serif;
+      background: linear-gradient(135deg, #fceabb, #f8b500);
+      padding: 20px;
+      color: #333;
+    }
+    h1 {
+      text-align: center;
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+      color: #222;
+    }
+    #search {
+      display: block;
+      margin: 0 auto 30px auto;
+      padding: 12px 18px;
+      width: 90%;
+      max-width: 400px;
+      font-size: 16px;
+      border-radius: 12px;
+      border: 1px solid #ddd;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      outline: none;
+      transition: box-shadow 0.3s ease;
+    }
+    #search:focus {
+      box-shadow: 0 0 8px 2px #f8b500;
+      border-color: #f8b500;
+    }
+    .teams-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+    }
+    .team-card {
+      background: white;
+      border-radius: 16px;
+      padding: 15px;
+      width: 150px;
+      text-align: center;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+      cursor: pointer;
+      position: relative;
+      border: 3px solid transparent;
+    }
+    .team-card:hover {
+      transform: scale(1.05);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    }
+    /* Destaque dourado para os top 3 */
+    .team-card.top-1 {
+      border-color: #FFD700; /* Ouro */
+      box-shadow: 0 0 15px 5px #FFD700;
+      z-index: 10;
+    }
+    .team-card img {
+      width: 80px;
+      height: 80px;
+      object-fit: contain;
+      margin-bottom: 10px;
+    }
+    .team-name {
+      font-weight: 600;
+      font-size: 1rem;
+      color: #444;
+      user-select: none;
+    }
+    .no-results {
+      width: 100%;
+      text-align: center;
+      color: #666;
+      font-weight: 600;
+      font-size: 1.1rem;
+      margin-top: 20px;
+      user-select: none;
+    }
+  </style>
+</head>
+<body>
+  <h1>🔥 Times em Alta</h1>
+  <input type="text" id="search" placeholder="🔍 Buscar time..." />
+  <div class="teams-container" id="teams"></div>
+
+  <script>
+    const times = [
+      { nome: "Flamengo", logo: "https://logodetimes.com/times/flamengo/logo-flamengo-256.png" },
+      { nome: "Corinthians", logo: "https://logodetimes.com/times/corinthians/logo-corinthians-256.png" },
+      { nome: "Palmeiras", logo: "https://logodetimes.com/times/palmeiras/logo-palmeiras-256.png" },
+      { nome: "Vasco da Gama", logo: "https://logodetimes.com/times/vasco-da-gama/logo-vasco-da-gama-256.png" },
+      { nome: "Botafogo", logo: "https://logodetimes.com/times/botafogo/logo-botafogo-256.png" },
+      { nome: "Fluminense", logo: "https://logodetimes.com/times/fluminense/logo-fluminense-256.png" },
+      { nome: "São Paulo", logo: "https://logodetimes.com/times/sao-paulo/logo-sao-paulo-256.png" },
+      { nome: "Barcelona", logo: "https://logodetimes.com/times/barcelona/logo-barcelona-256.png" },
+      { nome: "Real Madrid", logo: "https://logodetimes.com/times/real-madrid/logo-real-madrid-escudo-256.png" },
+      { nome: "Paris Saint-Germain", logo: "https://logodetimes.com/times/paris-saint-germain/paris-saint-germain-256.png" },
+      { nome: "Grêmio", logo: "https://logodetimes.com/times/gremio/logo-gremio-256.png" },
+      { nome: "Internacional", logo: "https://logodetimes.com/times/internacional/logo-internacional-256.png" },
+      { nome: "Cruzeiro", logo: "https://logodetimes.com/times/cruzeiro/logo-cruzeiro-256.png" },
+      { nome: "Atlético Mineiro", logo: "https://logodetimes.com/times/atletico-mineiro/logo-atletico-mineiro-256.png" },
+      { nome: "Juventus", logo: "https://logodetimes.com/times/juventus/logo-juventus-256.png" },
+      { nome: "Boca Juniors", logo: "https://logodetimes.com/times/club-atletico-boca-juniors/club-atletico-boca-juniors-256.png" },
+      { nome: "Santos", logo: "https://logodetimes.com/times/santos/logo-santos-256.png" },
+      { nome: "Bahia", logo: "https://logodetimes.com/times/bahia/logo-bahia-256.png" },
+      { nome: "Fortaleza", logo: "https://logodetimes.com/times/fortaleza/logo-fortaleza-256.png" },
+      { nome: "Ceará", logo: "https://logodetimes.com/times/ceara/logo-ceara-256.png" },
+      { nome: "Athletico Paranaense", logo: "https://logodetimes.com/times/atletico-paranaense/logo-atletico-paranaense-256.png" },
+      { nome: "Chapecoense", logo: "https://logodetimes.com/times/chapecoense/logo-chapecoense-256.png" },
+      { nome: "América Mineiro", logo: "https://logodetimes.com/times/america-mineiro/logo-america-mineiro-256.png" },
+      { nome: "Goiás", logo: "https://logodetimes.com/times/goias/logo-goias-esporte-clube-256.png" },
+      { nome: "Sport", logo: "https://logodetimes.com/times/sport-recife/logo-sport-recife-256.png" },
+      { nome: "Náutico", logo: "https://logodetimes.com/times/nautico/logo-nautico-256.png" },
+      { nome: "Santa Cruz", logo: "https://logodetimes.com/times/santa-cruz/logo-santa-cruz-256.png" },
+      { nome: "Ponte Preta", logo: "https://logodetimes.com/times/ponte-preta/logo-ponte-preta-256.png" },
+      { nome: "Guarani", logo: "https://logodetimes.com/times/guarani/logo-guarani-256.png" }
+    ];
+
+    const container = document.getElementById("teams");
+    const searchInput = document.getElementById("search");
+
+    function removeAcentos(str) {
+      return str.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+    }
+
+    function renderTeams(filter = "") {
+      container.innerHTML = "";
+      const filtroNormalizado = removeAcentos(filter.toLowerCase());
+
+      const filtered = times.filter(team => {
+        const nomeNormalizado = removeAcentos(team.nome.toLowerCase());
+        return nomeNormalizado.includes(filtroNormalizado);
+      });
+
+      if (filtered.length === 0) {
+        container.innerHTML = `<p class="no-results">Nenhum time encontrado.</p>`;
+        return;
+      }
+
+      filtered.forEach((team, index) => {
+        const card = document.createElement("div");
+        card.className = "team-card";
+
+        // Aplica cor dourada aos 3 primeiros
+        if (index < 3) card.classList.add("top-1");
+
+        const img = document.createElement("img");
+        img.src = team.logo;
+        img.alt = `Logo do ${team.nome}`;
+        img.onerror = () => {
+          img.remove();
+          card.innerHTML += `<div class="team-name">${team.nome}</div>`;
+        };
+
+        const name = document.createElement("div");
+        name.className = "team-name";
+        name.textContent = team.nome;
+
+        card.appendChild(img);
+        card.appendChild(name);
+        container.appendChild(card);
+      });
+    }
+
+    renderTeams();
+
+    searchInput.addEventListener("input", (e) => {
+      renderTeams(e.target.value);
+    });
+  </script>
+</body>
+</html>

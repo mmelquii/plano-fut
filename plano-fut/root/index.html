@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Camisas de Futebol Originais 2024 - Loja Oficial</title>
+  <meta name="description" content="Compre camisas de futebol originais 2024 dos principais times como Flamengo, Real Madrid, Barcelona e mais. Frete grátis hoje!" />
+  <meta name="keywords" content="camisa de time original, camisas de futebol 2024, comprar camisa oficial Flamengo, camisas de futebol baratas" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://yourdomain.com/" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap"
+    rel="stylesheet"
+  />
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+  />
+  <link rel="stylesheet" href="/css/styles.css" />
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+    }
+  </style>
+</head>
+<body class="bg-gray-100 font-sans">
+  <!-- Email Capture Popup -->
+  <div
+    id="emailPopup"
+    class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center hidden z-50"
+  >
+    <div class="bg-white p-6 rounded-lg max-w-md text-center">
+      <h2 class="text-2xl font-bold text-red-600">10% OFF na Primeira Compra!</h2>
+      <p class="mt-2">Insira seu e-mail e receba um cupom exclusivo.</p>
+      <input
+        type="email"
+        id="emailInput"
+        placeholder="Seu e-mail"
+        class="mt-4 p-2 w-full border rounded"
+      />
+      <button
+        onclick="submitEmail()"
+        class="mt-4 bg-red-600 text-white py-2 px-4 rounded hover:bg-red-700"
+      >
+        Quero meu cupom!
+      </button>
+      <button onclick="closePopup()" class="mt-2 text-gray-600">Fechar</button>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header class="bg-black text-white sticky top-0 z-40">
+    <div
+      class="container mx-auto px-4 py-4 flex justify-between items-center"
+    >
+      <h1 class="text-2xl font-bold">IM futebol </h1>
+      <nav>
+        <a href="/teams" class="mx-2 hover:text-red-600">Times</a>
+        <a href="/promotions" class="mx-2 hover:text-red-600">Promoções</a>
+        <a href="/new" class="mx-2 hover:text-red-600">Lançamentos</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Popular Teams -->
+  <section class="bg-gray-800 py-4">
+    <div
+      class="container mx-auto px-4 flex overflow-x-auto space-x-4"
+    >
+      <a
+        href="/teams/flamengo"
+        class="text-white px-4 py-2 bg-red-600 rounded hover:bg-red-700"
+        >Flamengo</a
+      >
+      <a
+        href="/teams/realmadrid"
+        class="text-white px-4 py-2 bg-blue-600 rounded hover:bg-blue-700"
+        >Real Madrid</a
+      >
+      <a
+        href="/teams/barcelona"
+        class="text-white px-4 py-2 bg-red-700 rounded hover:bg-red-800"
+        >Barcelona</a
+      >
+      <a
+        href="/teams/palmeiras"
+        class="text-white px-4 py-2 bg-green-600 rounded hover:bg-green-700"
+        >Palmeiras</a
+      >
+      <a
+        href="/teams/psg"
+        class="text-white px-4 py-2 bg-blue-800 rounded hover:bg-blue-900"
+        >PSG</a
+      >
+      <a
+        href="/teams"
+        class="text-white px-4 py-2 bg-gray-600 rounded hover:bg-gray-700"
+        >Ver todos os times</a
+      >
+    </div>
+  </section>
+
+  <!-- Título Camisas em Destaque -->
+  <section class="container mx-auto px-4 mt-8">
+    <h2
+      class="text-3xl font-semibold text-red-600 text-center mb-6"
+      id="camisasDestaqueTitle"
+    >
+      Camisas em Destaque
+    </h2>
+  </section>
+
+  <!-- Carrossel -->
+  <section class="relative">
+    <div
+      id="carousel"
+      class="container mx-auto px-4 py-8 relative overflow-hidden rounded-lg bg-white max-w-4xl h-[360px]"
+    >
+      <!-- Slide clicável com selo -->
+      <a
+        id="carouselLink"
+        href="https://s.shopee.com.br/9f8MX6xZhu"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="block w-full h-64 relative"
+      >
+        <img
+          id="carouselImage"
+          src="https://i.postimg.cc/SKCBWS24/sg-11134201-7rbkt-m5iv6aoq4fiv3d.webp"
+          alt="Camisa Flamengo Manto Masculina"
+          class="w-full h-full object-contain rounded-lg"
+        />
+        <!-- Selo Oficial -->
+        <div
+          class="absolute top-2 left-2 bg-red-600 text-white px-2 py-1 text-xs font-bold rounded"
+        >
+          OFICIAL
+        </div>
+      </a>
+
+      <!-- Descrição e preço -->
+      <div
+        id="carouselDescription"
+        class="mt-4 text-center max-w-4xl mx-auto"
+      >
+        <h3
+          class="text-lg font-semibold text-gray-800"
+          id="carouselTitle"
+        >
+          Camisa Flamengo Manto Masculina
+        </h3>
+        <p class="text-red-600 text-xl font-bold" id="carouselPrice">
+          R$139,90
+        </p>
+        <p class="line-through text-gray-500" id="carouselOldPrice">
+          R$149,90
+        </p>
+        <p class="text-green-600 font-semibold" id="carouselDiscount">-7%</p>
+      </div>
+
+      <!-- Botões prev/next -->
+      <button
+        onclick="prevSlide()"
+        class="absolute left-4 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 text-white p-2 rounded-full z-50"
+        aria-label="Slide anterior"
+      >
+        ❮
+      </button>
+      <button
+        onclick="nextSlide()"
+        class="absolute right-4 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 text-white p-2 rounded-full z-50"
+        aria-label="Próximo slide"
+      >
+        ❯
+      </button>
+    </div>
+
+    <script>
+      const slides = [
+        {
+          img: "https://i.postimg.cc/SKCBWS24/sg-11134201-7rbkt-m5iv6aoq4fiv3d.webp",
+          alt: "Camisa Flamengo Manto Masculina",
+          title: "Camisa Flamengo Manto Masculina",
+          price: "R$139,90",
+          oldPrice: "R$149,90",
+          discount: "-7%",
+          link: "https://s.shopee.com.br/9f8MX6xZhu",
+        },
+        {
+          img: "https://i.postimg.cc/SNpbxzJr/sg-11134201-7qvew-lfu82sty2j0gf2.webp",
+          alt: "Camisa Barcelona Retrô Classic Masculina",
+          title: "Camisa Barcelona Retrô Classic Masculina",
+          price: "R$199,90",
+          oldPrice: "",
+          discount: "",
+          link: "https://s.shopee.com.br/LahQLjPTs",
+        },
+        {
+          img: "https://i.postimg.cc/t4ScW1C8/sg-11134201-7rdy6-m0eskx85ynsy65.webp",
+          alt: "Camisa Palmeiras CASA II",
+          title: "Camisa Palmeiras CASA II",
+          price: "R$134,90",
+          oldPrice: "",
+          discount: "",
+          link: "https://s.shopee.com.br/9KVW93Ac95",
+        },
+        {
+          img: "https://i.postimg.cc/7LJKzmRT/sg-11134201-7qvdw-lhntvb1xmq91b0.webp",
+          alt: "Camisa PSG Paris Saint Germain Faixa Azul Masculina",
+          title: "Camisa PSG Paris Saint Germain Faixa Azul Masculina",
+          price: "R$79,90",
+          oldPrice: "",
+          discount: "",
+          link: "https://s.shopee.com.br/7V3ry1duPw",
+        },
+        {
+          img: "https://i.postimg.cc/d18nHDws/sg-11134201-7rdym-m0ynanmhefr5d0.webp",
+          alt: "Camisa Real Madrid Retrô nº 10 Masculina",
+          title: "Camisa Real Madrid Retrô nº 10 Masculina",
+          price: "R$199,90",
+          oldPrice: "",
+          discount: "",
+          link: "https://s.shopee.com.br/Vu7dKwbk1",
+        },
+      ];
+
+      let currentSlide = 0;
+
+      function showSlide(index) {
+        if (index < 0) {
+          currentSlide = slides.length - 1;
+        } else if (index >= slides.length) {
+          currentSlide = 0;
+        } else {
+          currentSlide = index;
+        }
+
+        const slide = slides[currentSlide];
+
+        document.getElementById("carouselImage").src = slide.img;
+        document.getElementById("carouselImage").alt = slide.alt;
+        document.getElementById("carouselLink").href = slide.link;
+
+        document.getElementById("carouselTitle").textContent = slide.title;
+        document.getElementById("carouselPrice").textContent = slide.price;
+
+        // Old price e desconto só aparecem se tiver valor
+        if (slide.oldPrice) {
+          document.getElementById("carouselOldPrice").textContent = slide.oldPrice;
+          document.getElementById("carouselOldPrice").style.display = "block";
+        } else {
+          document.getElementById("carouselOldPrice").style.display = "none";
+        }
+
+        if (slide.discount) {
+          document.getElementById("carouselDiscount").textContent = slide.discount;
+          document.getElementById("carouselDiscount").style.display = "block";
+        } else {
+          document.getElementById("carouselDiscount").style.display = "none";
+        }
+      }
+
+      function nextSlide() {
+        showSlide(currentSlide + 1);
+      }
+
+      function prevSlide() {
+        showSlide(currentSlide - 1);
+      }
+
+      // Inicializa o carrossel
+      showSlide(currentSlide);
+
+      // Auto troca a cada 6 segundos (opcional)
+      setInterval(() => {
+        nextSlide();
+      }, 6000);
+    </script>
+  </section>
+
+  <!-- Featured Products -->
+  <section class="container mx-auto px-4 py-8">
+    <div
+      id="products"
+      class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6"
+    ></div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-black text-white py-8">
+    <div
+      class="container mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-8"
+    >
+      <div>
+        <h3 class="text-xl font-bold">IM futebol </h3>
+        <p>A loja oficial das camisas de futebol 2024!</p>
+      </div>
+      <div>
+        <h3 class="text-xl font-bold">Links Rápidos</h3>
+        <ul>
+          <li><a href="/teams" class="hover:text-red-600">Times</a></li>
+          <li><a href="/promotions" class="hover:text-red-600">Promoções</a></li>
+          <li><a href="/new" class="hover:text-red-600">Lançamentos</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="text-xl font-bold">Suporte</h3>
+        <ul>
+          <li><a href="/policies" class="hover:text-red-600">Políticas</a></li>
+          <li><a href="/contact"

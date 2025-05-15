@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Camisas do [TeamName] 2024 - Loja Oficial</title>
+  <meta name="description" content="Compre camisas oficiais do [TeamName] 2024. Frete grátis hoje e últimas unidades disponíveis!">
+  <meta name="keywords" content="camisa oficial [TeamName], camisas de futebol [TeamName] 2024, comprar camisa [TeamName]">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
+</head>
+<body class="bg-gray-100 font-sans">
+  <!-- Header -->
+  <header class="bg-black text-white sticky top-0 z-40">
+    <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+      <h1 class="text-2xl font-bold">IM futebol </h1>
+      <nav>
+        <a href="/teams" class="mx-2 hover:text-red-600">Times</a>
+        <a href="/promotions" class="mx-2 hover:text-red-600">Promoções</a>
+        <a href="/new" class="mx-2 hover:text-red-600">Lançamentos</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Team Products -->
+  <section class="container mx-auto px-4 py-8">
+    <h1 class="text-3xl font-bold text-center text-red-600 mb-8">Camisas do [TeamName]</h1>
+    <div id="teamProducts" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6"></div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-black text-white py-8">
+    <div class="container mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div>
+        <h3 class="text-xl font-bold">IM futebol </h3>
+        <p>A loja oficial das camisas de futebol 2024!</p>
+      </div>
+      <div>
+        <h3 class="text-xl font-bold">Links Rápidos</h3>
+        <ul>
+          <li><a href="/teams" class="hover:text-red-600">Times</a></li>
+          <li><a href="/promotions" class="hover:text-red-600">Promoções</a></li>
+          <li><a href="/new" class="hover:text-red-600">Lançamentos</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="text-xl font-bold">Suporte</h3>
+        <ul>
+          <li><a href="/policies" class="hover:text-red-600">Políticas</a></li>
+          <li><a href="/contact" class="hover:text-red-600">Contato</a></li>
+          <li><a href="/track" class="hover:text-red-600">Rastrear Pedido</a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+
+  <!-- JavaScript -->
+  <script>
+    // Replace with actual team data from Google Sheets
+    const teamData = teams.filter(t => t.name === '[TeamName]');
+    document.getElementById('teamProducts').innerHTML = teamData.map(team => `
+      <div class="bg-white p-4 rounded-lg shadow hover-scale">
+        <img src="${team.jerseyImage}" alt="${team.jerseyName}" class="w-full h-48 object-contain" loading="lazy">
+        <h3 class="text-lg font-bold">${team.jerseyName}</h3>
+        <p class="text-gray-600 line-through">R$${team.originalPrice.toFixed(2)}</p>
+        <p class="text-red-600 font-bold text-xl">R$${team.price.toFixed(2)}</p>
+        ${team.stock <= 5 ? `<p class="text-red-600">Últimas ${team.stock} unidades!</p>` : ''}
+        ${team.isOfficial ? `<p class="text-green-600">Camisa Oficial</p>` : ''}
+        ${team.isBestSeller ? `<p class="text-yellow-600">Mais Vendida!</p>` : ''}
+        <a href="${team.productPage}" class="block mt-4 bg-red-600 text-white text-center py-2 rounded hover:bg-red-700">Garanta agora!</a>
+      </div>
+    `).join('');
+  </script>
+</body>
+</html>

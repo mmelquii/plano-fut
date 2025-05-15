@@ -1,0 +1,57 @@
+[
+  {
+    "nome": "Flamengo",
+    "slug": "flamengo",
+    "logo": "https://logodetimes.com/times/flamengo/logo-flamengo-256.png"
+  },
+  {
+    "nome": "Corinthians",
+    "slug": "corinthians",
+    "logo": "https://logodetimes.com/times/corinthians/logo-corinthians-256.png"
+  },
+  {
+    "nome": "São Paulo",
+    "slug": "sao-paulo",
+    "logo": "https://logodetimes.com/times/sao-paulo/logo-sao-paulo-256.png"
+  },
+  {
+    "nome": "Grêmio",
+    "slug": "gremio",
+    "logo": "https://logodetimes.com/times/gremio/logo-gremio-256.png"
+  },
+  {
+    "nome": "Internacional",
+    "slug": "internacional",
+    "logo": "https://logodetimes.com/times/internacional/logo-internacional-256.png"
+  },
+  {
+    "nome": "Vasco",
+    "slug": "vasco",
+    "logo": "https://logodetimes.com/times/vasco/logo-vasco-256.png"
+  },
+  {
+    "nome": "Fluminense",
+    "slug": "fluminense",
+    "logo": "https://logodetimes.com/times/fluminense/logo-fluminense-256.png"
+  },
+  {
+    "nome": "Cruzeiro",
+    "slug": "cruzeiro",
+    "logo": "https://logodetimes.com/times/cruzeiro/logo-cruzeiro-256.png"
+  },
+  {
+    "nome": "Atlético Mineiro",
+    "slug": "atletico-mg",
+    "logo": "https://logodetimes.com/times/atletico-mg/logo-atletico-mg-256.png"
+  },
+  {
+    "nome": "Juventus",
+    "slug": "juventus",
+    "logo": "https://logodetimes.com/times/juventus/logo-juventus-256.png"
+  },
+  {
+    "nome": "Boca Juniors",
+    "slug": "boca-juniors",
+    "logo": "https://logodetimes.com/times/boca-juniors/logo-boca-juniors-256.png"
+  }
+]
